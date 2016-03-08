@@ -15,7 +15,7 @@ MAINTAINER Giuseppe Mazzotta "gdm85@users.noreply.github.com"
 ## some core packages
 RUN apt-get update && apt-get install -y aptitude
 RUN aptitude update && aptitude safe-upgrade -y
-RUN aptitude install htop tmux less locales openssh-server -y
+RUN aptitude install curl htop tmux less locales openssh-server -y
 
 ## these 2 files can be customized
 COPY etc/timezone /etc/
