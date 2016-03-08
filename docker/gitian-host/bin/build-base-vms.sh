@@ -11,7 +11,7 @@ if [ -z "$USE_LXC" ]; then
 fi
 
 export MIRROR_HOST=$GITIAN_HOST_IP
-SUITE=precise
+SUITE=trusty
 
 cd gitian-builder && \
 mkdir -p var || exit $?
