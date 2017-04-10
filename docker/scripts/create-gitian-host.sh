@@ -40,7 +40,7 @@ fi
 ##NOTE: can leave behind a running container of gitian-host
 docker build --tag=gdm85/gitian-host . && \
 CID=$(docker run -d --privileged gdm85/gitian-host) && \
-IP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $CID) && \
+IP=$(docker exec $CID cat /etc/hosts | tail -n1 | awk '{ print $1 }') && \
 wait_for_ssh "$IP" 10 && \
 echo "$CID is now online ($IP), building base VMs on it" && \
 ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no debian@$IP bash -c 'cd /home/debian && source ./.bash_profile && ./build-base-vms.sh amd64' && \
