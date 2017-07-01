@@ -57,10 +57,6 @@ COPY bin/build-base-vms.sh /home/debian/
 
 RUN git clone https://github.com/devrandom/gitian-builder.git && cd gitian-builder && git checkout  ad3f9cc4c2c8c0899961a366f5b9fbd1483b0ee3
 
-COPY gitian.patch /home/debian/
-
-## patch to allow paralle creation of VMs
-RUN cd gitian-builder && patch -p1 < ../gitian.patch && rm ../gitian.patch
 RUN chown -R debian.debian .bash_profile . && chown -R apt-cacher-ng.apt-cacher-ng /var/cache/apt-cacher-ng/
 
 ## suggested: run this image with mounted volumes for pre-downloaded inputs and apt-cacher-ng cache
