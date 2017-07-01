@@ -55,7 +55,7 @@ COPY bash_profile /home/debian/.bash_profile
 ## script used to build base VMs
 COPY bin/build-base-vms.sh /home/debian/
 
-RUN git clone https://github.com/devrandom/gitian-builder.git && cd gitian-builder && git checkout 2bcc06e6b75b3f7a0167cde7237331757dd559c6
+RUN git clone https://github.com/devrandom/gitian-builder.git && cd gitian-builder && git checkout  ad3f9cc4c2c8c0899961a366f5b9fbd1483b0ee3
 
 COPY gitian.patch /home/debian/
 
